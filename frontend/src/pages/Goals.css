@@ -1,0 +1,144 @@
+.goals-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.goal-card {
+    padding: var(--space-lg) !important;
+}
+
+.goal-complete {
+    border-color: rgba(52, 211, 153, 0.3) !important;
+}
+
+.goal-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-sm);
+}
+
+.goal-ring {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.goal-ring-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.goal-ring-bg {
+    fill: none;
+    stroke: var(--border-subtle);
+    stroke-width: 6;
+}
+
+.goal-ring-fill {
+    fill: none;
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.8s ease;
+}
+
+.goal-ring-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.goal-actions {
+    display: flex;
+    gap: 2px;
+}
+
+.goal-name {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.goal-amounts {
+    font-size: 0.9rem;
+}
+
+.goal-current {
+    font-weight: 700;
+    color: var(--accent-primary);
+}
+
+.goal-progress-bar {
+    height: 6px;
+    background: var(--bg-input);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-top: var(--space-sm);
+}
+
+.goal-progress-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.8s ease;
+}
+
+.goal-total-bar {
+    height: 8px;
+    background: var(--bg-input);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.goal-total-fill {
+    height: 100%;
+    background: var(--accent-gradient);
+    border-radius: var(--radius-full);
+    transition: width 0.8s ease;
+}
+
+/* Icon Picker */
+.icon-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-input);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.icon-btn:hover {
+    border-color: var(--border-active);
+    transform: scale(1.1);
+}
+
+.icon-btn.active {
+    border-color: var(--accent-primary);
+    background: var(--accent-glow);
+    box-shadow: var(--shadow-glow);
+}
+
+@media (min-width: 768px) {
+    .page-header {
+        margin-top: 56px;
+    }
+
+    .goals-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

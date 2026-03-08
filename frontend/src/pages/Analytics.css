@@ -1,0 +1,56 @@
+.chart-container {
+    height: 250px;
+    position: relative;
+}
+
+.chart-container-doughnut {
+    height: 280px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-expenses {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-expense-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.top-expense-item:last-child {
+    border-bottom: none;
+}
+
+.top-rank {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-input);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.top-expense-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+@media (min-width: 768px) {
+    .page-header {
+        margin-top: 56px;
+    }
+}

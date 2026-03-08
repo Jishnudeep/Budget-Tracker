@@ -1,0 +1,135 @@
+.budget-pulse {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+}
+
+.pulse-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid;
+    opacity: 0.4;
+}
+
+.pulse-ring-outer {
+    width: 100%;
+    height: 100%;
+    animation: pulseRing var(--pulse-speed, 2s) ease-in-out infinite;
+}
+
+.pulse-ring-inner {
+    width: 75%;
+    height: 75%;
+    animation: pulseRing var(--pulse-speed, 2s) ease-in-out infinite 0.3s;
+}
+
+.pulse-core {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    z-index: 1;
+    animation: heartbeat var(--pulse-speed, 2s) ease-in-out infinite;
+}
+
+.pulse-icon {
+    font-size: 1.5rem;
+}
+
+.pulse-percent {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.pulse-status {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Healthy — slow calm green */
+.pulse-healthy {
+    --pulse-speed: 3s;
+}
+
+.pulse-healthy .pulse-ring {
+    border-color: var(--color-success);
+}
+
+.pulse-healthy .pulse-percent {
+    color: var(--color-success);
+}
+
+.pulse-healthy .pulse-status {
+    color: var(--color-success);
+}
+
+/* Caution — medium orange */
+.pulse-caution {
+    --pulse-speed: 2s;
+}
+
+.pulse-caution .pulse-ring {
+    border-color: var(--cat-food);
+}
+
+.pulse-caution .pulse-percent {
+    color: var(--cat-food);
+}
+
+.pulse-caution .pulse-status {
+    color: var(--cat-food);
+}
+
+/* Warning — faster yellow */
+.pulse-warning {
+    --pulse-speed: 1.2s;
+}
+
+.pulse-warning .pulse-ring {
+    border-color: var(--color-warning);
+}
+
+.pulse-warning .pulse-percent {
+    color: var(--color-warning);
+}
+
+.pulse-warning .pulse-status {
+    color: var(--color-warning);
+}
+
+/* Critical — rapid red */
+.pulse-critical {
+    --pulse-speed: 0.6s;
+}
+
+.pulse-critical .pulse-ring {
+    border-color: var(--color-danger);
+}
+
+.pulse-critical .pulse-percent {
+    color: var(--color-danger);
+}
+
+.pulse-critical .pulse-status {
+    color: var(--color-danger);
+}
+
+@keyframes pulseRing {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.1;
+    }
+}

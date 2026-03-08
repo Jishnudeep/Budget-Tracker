@@ -1,0 +1,222 @@
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-lg);
+}
+
+.dash-header h1 {
+    font-size: 1.5rem;
+}
+
+.dash-header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.month-picker {
+    background: var(--bg-input);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    outline: none;
+    cursor: pointer;
+    color-scheme: dark;
+}
+
+.month-picker:focus {
+    border-color: var(--accent-primary);
+}
+
+/* Category Breakdown */
+.category-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.cat-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cat-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cat-amount {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.cat-bar-bg {
+    height: 6px;
+    background: var(--bg-input);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.cat-bar {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.6s ease;
+}
+
+.category-bar-food {
+    background: var(--cat-food);
+}
+
+.category-bar-transport {
+    background: var(--cat-transport);
+}
+
+.category-bar-bills {
+    background: var(--cat-bills);
+}
+
+.category-bar-entertainment {
+    background: var(--cat-entertainment);
+}
+
+.category-bar-shopping {
+    background: var(--cat-shopping);
+}
+
+.category-bar-health {
+    background: var(--cat-health);
+}
+
+.category-bar-education {
+    background: var(--cat-education);
+}
+
+.category-bar-subscriptions {
+    background: var(--cat-subscriptions);
+}
+
+.category-bar-groceries {
+    background: var(--cat-groceries);
+}
+
+.category-bar-travel {
+    background: var(--cat-travel);
+}
+
+.category-bar-other {
+    background: var(--cat-other);
+}
+
+/* Forecast */
+.forecast-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.forecast-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.forecast-bar-bg {
+    height: 10px;
+    background: var(--bg-input);
+    border-radius: var(--radius-full);
+    overflow: visible;
+    position: relative;
+}
+
+.forecast-bar {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.8s ease;
+}
+
+.forecast-marker {
+    position: absolute;
+    top: -3px;
+    width: 4px;
+    height: 16px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: left 0.8s ease;
+}
+
+.forecast-legend {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Transactions */
+.transactions-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-input);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+}
+
+.transaction-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-desc {
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.transaction-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: capitalize;
+}
+
+.transaction-amount {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-danger);
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .dash-header {
+        margin-top: 64px;
+    }
+}

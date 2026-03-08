@@ -1,0 +1,55 @@
+.velocity-meter {
+    text-align: center;
+}
+
+.velocity-gauge {
+    max-width: 220px;
+    margin: 0 auto;
+}
+
+.velocity-svg {
+    width: 100%;
+    height: auto;
+}
+
+.velocity-info {
+    margin-top: -8px;
+}
+
+.velocity-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: var(--space-xs);
+}
+
+.velocity-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.velocity-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.velocity-val {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.velocity-desc {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.velocity-divider {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}

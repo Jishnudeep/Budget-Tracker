@@ -1,0 +1,99 @@
+.navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 15, 35, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border-subtle);
+    z-index: 50;
+    padding: 0 var(--space-sm);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.navbar-inner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    height: var(--navbar-height);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 16px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.nav-item:hover {
+    color: var(--text-secondary);
+}
+
+.nav-item.active {
+    color: var(--accent-primary);
+}
+
+.nav-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.nav-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.nav-indicator {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 3px;
+    background: var(--accent-gradient);
+    border-radius: 0 0 var(--radius-full) var(--radius-full);
+    animation: fadeIn 0.2s ease;
+}
+
+/* Desktop: move to sidebar or top */
+@media (min-width: 768px) {
+    .navbar {
+        top: 0;
+        bottom: auto;
+        border-top: none;
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 0 var(--space-lg);
+    }
+
+    .navbar-inner {
+        height: 56px;
+        justify-content: center;
+        gap: var(--space-sm);
+    }
+
+    .nav-item {
+        flex-direction: row;
+        gap: var(--space-xs);
+        padding: 8px 16px;
+    }
+
+    .nav-label {
+        font-size: 0.8rem;
+    }
+
+    .nav-indicator {
+        top: auto;
+        bottom: -1px;
+        border-radius: var(--radius-full) var(--radius-full) 0 0;
+    }
+}
