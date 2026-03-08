@@ -3,7 +3,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(15, 15, 35, 0.95);
+    background: rgba(20, 25, 35, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid var(--border-subtle);

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import api from '../services/api';
+import { useAuth } from '../context/AuthContext';
 import './QuickAdd.css';
 
 const CATEGORIES = [
@@ -17,6 +17,7 @@ const CATEGORIES = [
 ];
 
 export default function QuickAdd() {
+    const { activeApi: api } = useAuth();
     const [isOpen, setIsOpen] = useState(false);
     const [amount, setAmount] = useState('');
     const [category, setCategory] = useState('food');

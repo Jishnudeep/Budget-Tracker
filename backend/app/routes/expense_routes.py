@@ -35,6 +35,8 @@ async def create_expense(expense_data: ExpenseCreate, current_user: dict = Depen
 async def get_expenses(
     month: Optional[str] = Query(None, pattern=r"^\d{4}-\d{2}$"),
     category: Optional[str] = None,
+    start_date: Optional[str] = None,
+    end_date: Optional[str] = None,
     current_user: dict = Depends(get_current_user),
 ):
     """Get expenses with optional filters."""
@@ -42,6 +44,13 @@ async def get_expenses(
 
     if month:
         query["date"] = {"$regex": f"^{month}"}
+    if start_date or end_date:
+        date_query = {}
+        if start_date:
+            date_query["$gte"] = start_date
+        if end_date:
+            date_query["$lte"] = end_date
+        query["date"] = date_query
     if category:
         query["category"] = category
 

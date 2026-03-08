@@ -72,13 +72,14 @@ class ApiService {
     }
 
     // Expenses
-    getExpenses(month, category) {
-        let url = '/expenses/';
+    getExpenses(month, category, startDate, endDate) {
         const params = new URLSearchParams();
         if (month) params.set('month', month);
         if (category) params.set('category', category);
+        if (startDate) params.set('start_date', startDate);
+        if (endDate) params.set('end_date', endDate);
         const qs = params.toString();
-        return this.request(url + (qs ? `?${qs}` : ''));
+        return this.request(`/expenses/${qs ? `?${qs}` : ''}`);
     }
 
     createExpense(data) {

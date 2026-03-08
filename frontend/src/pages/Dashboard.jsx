@@ -13,7 +13,7 @@ const CATEGORY_ICONS = {
 };
 
 export default function Dashboard() {
-    const { user, logout } = useAuth();
+    const { user, logout, activeApi: api } = useAuth();
     const [month, setMonth] = useState(() => {
         const now = new Date();
         return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
@@ -264,7 +264,7 @@ export default function Dashboard() {
                                     placeholder="e.g. 50000"
                                     value={budgetInput}
                                     onChange={e => setBudgetInput(e.target.value)}
-                                    min="1"
+                                    min="0"
                                     step="100"
                                     required
                                     autoFocus

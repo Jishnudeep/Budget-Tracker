@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Filler } from 'chart.js';
 import { Doughnut, Bar, Line } from 'react-chartjs-2';
-import api from '../services/api';
+import { useAuth } from '../context/AuthContext';
 import StreakBadge from '../components/StreakBadge';
 import './Analytics.css';
 
@@ -24,6 +24,7 @@ const CHART_OPTIONS = {
 };
 
 export default function Analytics() {
+    const { activeApi: api } = useAuth();
     const [month, setMonth] = useState(() => {
         const now = new Date();
         return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
@@ -109,8 +110,8 @@ export default function Analytics() {
             {
                 label: 'Cumulative Spending',
                 data: cumulativeData,
-                borderColor: '#7c6ff7',
-                backgroundColor: 'rgba(124, 111, 247, 0.1)',
+                borderColor: '#10b981',
+                backgroundColor: 'rgba(16, 185, 129, 0.1)',
                 fill: true,
                 tension: 0.4,
                 pointRadius: 0,

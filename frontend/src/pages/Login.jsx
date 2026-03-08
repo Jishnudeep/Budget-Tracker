@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import './Login.css';
 
 export default function Login() {
-    const { login, register, enterDemo } = useAuth();
+    const { login, register } = useAuth();
     const [isRegister, setIsRegister] = useState(false);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -110,19 +110,6 @@ export default function Login() {
                         id="auth-submit"
                     >
                         {loading ? 'Please wait...' : (isRegister ? 'Create Account' : 'Sign In')}
-                    </button>
-
-                    <div className="demo-divider">
-                        <span>or</span>
-                    </div>
-
-                    <button
-                        type="button"
-                        className="btn btn-secondary btn-full"
-                        onClick={enterDemo}
-                        id="demo-btn"
-                    >
-                        🚀 Try Demo (No MongoDB needed)
                     </button>
                 </form>
             </div>

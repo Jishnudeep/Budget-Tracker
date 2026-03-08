@@ -1,10 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
-import api from '../services/api';
+import { useAuth } from '../context/AuthContext';
 import './Goals.css';
 
 const GOAL_ICONS = ['🎯', '🏠', '🚗', '✈️', '💻', '📱', '🎓', '💍', '🏥', '🎮', '📚', '💰'];
 
 export default function Goals() {
+    const { activeApi: api } = useAuth();
     const [goals, setGoals] = useState([]);
     const [loading, setLoading] = useState(true);
     const [showModal, setShowModal] = useState(false);

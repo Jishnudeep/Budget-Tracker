@@ -1,23 +1,17 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import api from '../services/api';
-import demoApi from '../services/demoApi';
 
 const AuthContext = createContext(null);
 
 function getActiveApi() {
-    return localStorage.getItem('bt_demo_mode') ? demoApi : api;
+    return api;
 }
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [isDemo, setIsDemo] = useState(!!localStorage.getItem('bt_demo_mode'));
 
     useEffect(() => {
-        if (isDemo) {
-            demoApi.getMe().then(u => setUser(u)).finally(() => setLoading(false));
-            return;
-        }
         const token = api.getToken();
         if (token) {
             api.getMe()
@@ -27,7 +21,7 @@ export function AuthProvider({ children }) {
         } else {
             setLoading(false);
         }
-    }, [isDemo]);
+    }, []);
 
     const login = async (email, password) => {
         const data = await api.login({ email, password });
@@ -43,22 +37,15 @@ export function AuthProvider({ children }) {
         return data;
     };
 
-    const enterDemo = () => {
-        localStorage.setItem('bt_demo_mode', 'true');
-        setIsDemo(true);
-    };
-
     const logout = () => {
         api.setToken(null);
-        localStorage.removeItem('bt_demo_mode');
-        setIsDemo(false);
         setUser(null);
     };
 
-    const activeApi = isDemo ? demoApi : api;
+    const activeApi = api;
 
     return (
-        <AuthContext.Provider value={{ user, loading, login, register, logout, enterDemo, isDemo, activeApi }}>
+        <AuthContext.Provider value={{ user, loading, login, register, logout, activeApi }}>
             {children}
         </AuthContext.Provider>
     );

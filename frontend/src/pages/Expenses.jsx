@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import api from '../services/api';
+import { useAuth } from '../context/AuthContext';
+import ExportModal from '../components/ExportModal';
 import './Expenses.css';
 
 const CATEGORIES = [
@@ -23,6 +24,7 @@ const CATEGORY_ICONS = {
 };
 
 export default function Expenses() {
+    const { activeApi: api } = useAuth();
     const [month, setMonth] = useState(() => {
         const now = new Date();
         return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
@@ -35,6 +37,7 @@ export default function Expenses() {
     const [formData, setFormData] = useState({
         amount: '', category: 'food', description: '', date: '', notes: '',
     });
+    const [showExport, setShowExport] = useState(false);
 
     const loadExpenses = useCallback(async () => {
         setLoading(true);
@@ -115,9 +118,14 @@ export default function Expenses() {
             <div className="page-header">
                 <div className="flex justify-between items-center">
                     <h1>💸 Expenses</h1>
-                    <button className="btn btn-primary btn-sm" onClick={openAdd} id="add-expense-btn">
-                        + Add
-                    </button>
+                    <div className="flex gap-sm">
+                        <button className="btn btn-secondary btn-sm" onClick={() => setShowExport(true)} title="Export Statement">
+                            📄 Export
+                        </button>
+                        <button className="btn btn-primary btn-sm" onClick={openAdd} id="add-expense-btn">
+                            + Add
+                        </button>
+                    </div>
                 </div>
                 <div className="expenses-controls mt-md">
                     <input
@@ -259,6 +267,15 @@ export default function Expenses() {
                         </form>
                     </div>
                 </div>
+            )}
+
+            {/* Export Modal */}
+            {showExport && (
+                <ExportModal
+                    onClose={() => setShowExport(false)}
+                    activeApi={api}
+                    currentMonth={month}
+                />
             )}
         </div>
     );

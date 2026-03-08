@@ -1,0 +1,83 @@
+.export-modal {
+    max-width: 400px !important;
+}
+
+.export-periods {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-bottom: var(--space-sm);
+}
+
+.period-btn {
+    padding: 8px 4px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-input);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.period-btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-active);
+}
+
+.period-btn.active {
+    border-color: var(--accent-primary);
+    background: var(--color-success-bg);
+    color: var(--accent-primary);
+}
+
+.export-formats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.format-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    border-radius: var(--radius-lg);
+    background: var(--bg-input);
+    border: 1px solid var(--border-subtle);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.format-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.format-option:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-active);
+}
+
+.format-option.active {
+    border-color: var(--accent-primary);
+    background: var(--color-success-bg);
+    box-shadow: var(--shadow-glow);
+}
+
+.format-icon {
+    font-size: 1.5rem;
+}
+
+.format-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.format-option.active .format-name {
+    color: var(--text-primary);
+}

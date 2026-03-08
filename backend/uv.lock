@@ -56,7 +56,7 @@ requires-dist = [
     { name = "motor", specifier = ">=3.7.1" },
     { name = "pydantic", extras = ["email"], specifier = ">=2.12.5" },
     { name = "pyjwt", specifier = ">=2.11.0" },
-    { name = "pymongo", specifier = ">=4.16.0" },
+    { name = "pymongo", extras = ["srv"], specifier = ">=4.16.0" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "python-multipart", specifier = ">=0.0.22" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.41.0" },
