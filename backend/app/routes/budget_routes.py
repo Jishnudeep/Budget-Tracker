@@ -7,7 +7,7 @@ from app.auth import get_current_user
 from app.database import budgets_collection, expenses_collection
 from app.models import BudgetCreate, BudgetResponse
 
-router = APIRouter(prefix="/api/budget", tags=["Budget"])
+router = APIRouter(prefix="/budget", tags=["Budget"])
 
 
 @router.post("/", response_model=BudgetResponse, status_code=status.HTTP_201_CREATED)

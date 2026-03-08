@@ -8,7 +8,7 @@ from app.auth import get_current_user
 from app.database import expenses_collection
 from app.models import ExpenseCreate, ExpenseUpdate, ExpenseResponse
 
-router = APIRouter(prefix="/api/expenses", tags=["Expenses"])
+router = APIRouter(prefix="/expenses", tags=["Expenses"])
 
 
 @router.post("/", response_model=ExpenseResponse, status_code=status.HTTP_201_CREATED)

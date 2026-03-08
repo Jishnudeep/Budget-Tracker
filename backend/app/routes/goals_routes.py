@@ -7,7 +7,7 @@ from app.auth import get_current_user
 from app.database import goals_collection
 from app.models import GoalCreate, GoalUpdate, GoalResponse, ContributionCreate
 
-router = APIRouter(prefix="/api/goals", tags=["Savings Goals"])
+router = APIRouter(prefix="/goals", tags=["Savings Goals"])
 
 
 @router.post("/", response_model=GoalResponse, status_code=status.HTTP_201_CREATED)

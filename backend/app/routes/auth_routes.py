@@ -7,7 +7,7 @@ from app.auth import hash_password, verify_password, create_access_token, get_cu
 from app.database import users_collection
 from app.models import UserRegister, UserLogin, TokenResponse, UserResponse
 
-router = APIRouter(prefix="/api/auth", tags=["Authentication"])
+router = APIRouter(prefix="/auth", tags=["Authentication"])
 
 
 @router.post("/register", response_model=TokenResponse, status_code=status.HTTP_201_CREATED)

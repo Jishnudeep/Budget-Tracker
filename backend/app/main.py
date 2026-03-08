@@ -37,10 +37,10 @@ app.add_middleware(
 )
 
 # Include routers
-app.include_router(auth_router)
-app.include_router(budget_router)
-app.include_router(expense_router)
-app.include_router(goals_router)
+app.include_router(auth_router, prefix="/api")
+app.include_router(budget_router, prefix="/api")
+app.include_router(expense_router, prefix="/api")
+app.include_router(goals_router, prefix="/api")
 
 
 @app.get("/")
